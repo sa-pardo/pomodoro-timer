@@ -1,13 +1,93 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  background-color: #db524d;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#App {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "break session"
+    "timer timer"
+    "control control";
+}
+
+.title {
+  grid-area: title;
+  color: aliceblue;
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.TimerControl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.label {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.length {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.break {
+  grid-area: break;
+}
+
+.session {
+  grid-area: session;
+}
+
+.timer {
+  grid-area: timer;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+#timer-label {
+  font-size: 1rem;
+  margin-bottom: -1rem;
+}
+
+#time-left {
+  font-size: 5rem;
+  font-weight: 100;
+}
+
+.control {
+  grid-area: control;
+  margin: auto;
+}
+
+.pomodoro {
+  border: 0px solid black;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-areas: inherit;
+  padding: 2rem;
+  background-color: #da615d;
 }

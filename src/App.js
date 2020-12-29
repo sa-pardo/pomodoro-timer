@@ -72,52 +72,62 @@ function App() {
   }
 
   return (
-    <div>
-      <TimerLengthControl
-        nameID="break"
-        title="Break Length"
-        duration={breakDuration}
-        increment={incBreak}
-        decrement={decBreak}
-      />
-      <TimerLengthControl
-        nameID="session"
-        title="Session Length"
-        duration={sessionDuration}
-        increment={incSession}
-        decrement={decSession}
-      />
+    <div id="App">
+      <h1 className="title">25+5 Timer</h1>
+      <div className="pomodoro">
+        <TimerLengthControl
+          nameID="break"
+          title="Break Length"
+          duration={breakDuration}
+          increment={incBreak}
+          decrement={decBreak}
+        />
+        <TimerLengthControl
+          nameID="session"
+          title="Session Length"
+          duration={sessionDuration}
+          increment={incSession}
+          decrement={decSession}
+        />
 
-      <div id="timer-label">{timerType}</div>
-      <div id="time-left">{computeTime()}</div>
-
-      <button id="start_stop" onClick={() => setStarted(!started)}>
-        Start/Stop
-      </button>
-      <button id="reset" onClick={reset}>
-        Reset
-      </button>
-      <audio
-        id="beep"
-        preload="auto"
-        ref={audio}
-        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
-      />
+        <div className="timer">
+          <div id="timer-label">{timerType}</div>
+          <div id="time-left">{computeTime()}</div>
+        </div>
+        <div className="control">
+          <button id="start_stop" onClick={() => setStarted(!started)}>
+            Start/Stop
+          </button>
+          <button id="reset" onClick={reset}>
+            Reset
+          </button>
+          <audio
+            id="beep"
+            preload="auto"
+            ref={audio}
+            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
 function TimerLengthControl(props) {
   return (
-    <div className="TimerControl">
-      <div id={props.nameID + "-label"}>{props.title}</div>
+    <div className={"TimerControl " + props.nameID}>
+      <div id={props.nameID + "-label"} className="label">
+        {props.title}
+      </div>
+      <div id={props.nameID + "-length"} className="length">
+        {props.duration}
+      </div>
       <button id={props.nameID + "-increment"} onClick={props.increment}>
         up
       </button>
       <button id={props.nameID + "-decrement"} onClick={props.decrement}>
         down
       </button>
-      <div id={props.nameID + "-length"}>{props.duration}</div>
     </div>
   );
 }
