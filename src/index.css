@@ -17,6 +17,21 @@
   align-items: center;
 }
 
+button {
+  border: none;
+  background-color: inherit;
+  font-size: 40px;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  translate: 1px 1px;
+  color: #3792db;
+}
+
 #App {
   display: grid;
   grid-template-areas:
@@ -49,9 +64,11 @@
 }
 
 .length {
-  flex-basis: 100%;
+  /* flex-basis: 100%; */
   text-align: center;
   font-size: 1.6rem;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .break {
@@ -80,7 +97,10 @@
 
 .control {
   grid-area: control;
-  margin: auto;
+  justify-self: center;
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
 }
 
 .pomodoro {
