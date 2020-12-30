@@ -45,7 +45,6 @@ function App() {
     if (started) {
       intervalID = setInterval(() => {
         setTime(time - 1);
-        console.log(time);
       }, 1000);
       if (time === 0) {
         audio.current.play();
@@ -96,10 +95,10 @@ function App() {
         </div>
         <div className="control">
           <button id="start_stop" onClick={() => setStarted(!started)}>
-            Start/Stop
+            <i class="fas fa-play-circle"></i>
           </button>
           <button id="reset" onClick={reset}>
-            Reset
+            <i class="fas fa-stop"></i>
           </button>
           <audio
             id="beep"
@@ -119,14 +118,22 @@ function TimerLengthControl(props) {
       <div id={props.nameID + "-label"} className="label">
         {props.title}
       </div>
+      <button
+        id={props.nameID + "-decrement"}
+        className="control-button"
+        onClick={props.decrement}
+      >
+        <i class="fas fa-caret-left"></i>
+      </button>
       <div id={props.nameID + "-length"} className="length">
         {props.duration}
       </div>
-      <button id={props.nameID + "-increment"} onClick={props.increment}>
-        up
-      </button>
-      <button id={props.nameID + "-decrement"} onClick={props.decrement}>
-        down
+      <button
+        id={props.nameID + "-increment"}
+        className="control-button"
+        onClick={props.increment}
+      >
+        <i class="fas fa-caret-right"></i>
       </button>
     </div>
   );
